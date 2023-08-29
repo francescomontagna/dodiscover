@@ -537,7 +537,7 @@ class BaseTopOrder(CAMPruning, TopOrderInterface):
         prune: bool = True,
         n_splines: int = 10,
         splines_degree: int = 3,
-        pns: bool = False,
+        pns: bool = None,
         pns_num_neighbors: Optional[int] = None,
         pns_threshold: float = 1,
     ):

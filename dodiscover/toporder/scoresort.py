@@ -5,10 +5,9 @@ from numpy.typing import NDArray
 
 from dodiscover.toporder._base import SteinMixin
 from dodiscover.toporder.score import SCORE
-from dodiscover.toporder.utils import full_dag, pns
 
 
-class Scoresort(SCORE):
+class ScoreSort(SCORE):
     """The Score-sort algorithm for causal discovery.
 
     Score-sort iteratively defines a topological ordering finding the index
@@ -38,7 +37,8 @@ class Scoresort(SCORE):
         Stein Hessian estimator. Default is False.
     pns : bool, optional
         If True, perform Preliminary Neighbour Search (PNS) before CAM pruning step,
-        default is False. Allows scaling CAM pruning and ordering to large graphs.
+        default is None, which activates PNS only for graphs strictly larger than 20 nodes.
+        Allows scaling CAM pruning and ordering to large graphs.
     pns_num_neighbors: int, optional
         Number of neighbors to use for PNS. If None (default) use all variables.
     pns_threshold: float, optional
@@ -65,7 +65,7 @@ class Scoresort(SCORE):
         prune: bool = True,
         n_splines: int = 10,
         splines_degree: int = 3,
-        pns: bool = False,
+        pns: bool = None,
         pns_num_neighbors: Optional[int] = None,
         pns_threshold: float = 1,
     ):
